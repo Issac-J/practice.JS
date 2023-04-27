@@ -1,3 +1,13 @@
 body {
-  background-color: khaki;
+  /* background-color: khaki; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+canvas {
+  width: 700px;
+  height: 700px;
+  border: 2px solid black;
+  /* align-items: center;
+  justify-content: center; */
 }
