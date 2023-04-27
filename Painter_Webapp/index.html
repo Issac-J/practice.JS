@@ -10,6 +10,24 @@
   </head>
   <body>
     <canvas></canvas>
+    <input
+      type="range"
+      name="lineWidth"
+      id="lineWidth"
+      value="5"
+      min="0.5"
+      max="10"
+      step="0.5"
+    />
+    <input type="color" name="lineColor" id="lineColor" />
+    <div id="colors">
+      <div class="color" style="background-color: #00235b"></div>
+      <div class="color" style="background-color: #e21818"></div>
+      <div class="color" style="background-color: #ffdd83"></div>
+      <div class="color" style="background-color: #98dfd6"></div>
+    </div>
+
+    <button id="modeButton">Draw Mode</button>
     <script src="app.js"></script>
   </body>
 </html>

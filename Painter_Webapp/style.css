@@ -8,6 +8,10 @@ canvas {
   width: 700px;
   height: 700px;
   border: 2px solid black;
-  /* align-items: center;
-  justify-content: center; */
+  margin: 60px 0px;
+}
+
+.color {
+  width: 50px;
+  height: 50px;
 }
