@@ -43,3 +43,17 @@ button:hover {
   color: #191970;
   transition: 0.2s ease-in-out;
 }
+
+#recodeList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#recodeList div {
+  font-size: 1.8rem;
+  width: 200px;
+  margin: 4px auto;
+  padding: 4px;
+}
