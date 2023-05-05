@@ -32,20 +32,24 @@ function initialCalendarDate() {
   const month = data.getMonth() + 1;
   const date = data.getDate();
 
-  console.log(data);
-  console.log(year, month, date);
+  const numberOfDates = new Date(year, month, 0).getDate();
+
+  // 날짜의 수를 담을 Container
+  const framgment = new DocumentFragment();
+
+  // console.log(framgment);
+  for (let i = 0; i < numberOfDates; i++) {
+    const dateEl = document.createElement("div");
+    dateEl.classList.add("date");
+    dateEl.innerText = i + 1;
+    framgment.appendChild(dateEl);
+  }
+
+  calendarDatesEl.appendChild(framgment);
+
+  // Formated Date
+  console.log(selectedDate.data);
 }
-
-function formatedDate(dateData) {}
-
-calendarDatesEl.innerHTML = "123";
-const numberOfDates = new Date(
-  calendarDate.year,
-  calendarDate.month + 1,
-  0
-).getDate();
-
-function createDate() {}
 
 // Call Function
 initialCalendarDate();

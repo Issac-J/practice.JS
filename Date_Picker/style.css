@@ -6,19 +6,40 @@
 }
 
 .date-picker {
+  position: relative;
 }
 
+/* date-input */
 .date-input {
-  border: 1px solid red;
-
+  width: 300px;
+  height: 60px;
   margin: 30px auto;
-  width: 60px;
-  height: 300px;
+
+  border: 1px solid red;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+
+  font-size: 28px;
+
+  cursor: pointer;
+}
+.date-input:hover {
+  background-color: #f3f3f3;
 }
 
+/* calender */
 .calendar {
+  /* display: none; */
   width: 700px;
+
+  display: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+
   background-color: antiquewhite;
+  outline: 2px solid lightgrey;
+  overflow: hidden;
 }
 
 .month {
@@ -49,7 +70,15 @@
 }
 
 .dates {
-  /* display: grid;
+  display: grid;
   grid-template-columns: repeat(7, 1fr);
-  border: 1px solid black; */
+  border: 1px solid black;
+}
+
+.date {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
