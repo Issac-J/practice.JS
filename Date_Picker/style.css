@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.date-picker {
+}
+
+.date-input {
+  border: 1px solid red;
+
+  margin: 30px auto;
+  width: 60px;
+  height: 300px;
+}
+
+.calendar {
+  width: 700px;
+  background-color: antiquewhite;
+}
+
+.month {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arrows {
+  width: 35px;
+  height: 35px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #313131;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s; */
+}
+
+.days {
+  display: flex;
+}
+
+.day {
+  width: 100px;
+  height: 50px;
+}
+
+.dates {
+  /* display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border: 1px solid black; */
+}
