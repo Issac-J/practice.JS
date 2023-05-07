@@ -46,3 +46,21 @@
 - Experienced :
 
 ---
+
+## Practice: Simple_Calculator
+
+### Content
+
+- Status : Competed.
+- ~~Not Finished Contents : Style CSS, Write README('Experienced')~~
+-
+
+######
+
+- Published URL : https://singular-brioche-78ab81.netlify.app/
+- Experienced :
+  - innerHTML vs innerText vs textContent
+  - querySelectorAll, addEventListener, RegExp, Scope,
+  - Array Method( forEach, map, ... )
+
+---
