@@ -1,55 +1,118 @@
 // Getting Elements
-const inputElement = document.querySelector("div#input");
-const operators = document.querySelectorAll(".operators div");
-const numbers = document.querySelectorAll(".numbers div");
+const calculatorEl = document.querySelector(".calculator");
+const inputEl = document.querySelector(".input");
+const buttonEls = document.querySelectorAll(".buttons"); // Array
+const operatorEl = document.querySelector(".operators");
+const panelEl = document.querySelector(".panel");
+const numberEls = document.querySelectorAll(".numbers div");
+const equalEl = document.querySelector(".equal");
+const clearEl = document.getElementById("clear");
 
-const clearButton = document.querySelector("#clear");
+// Global Variables
+let resultDisplayFlag = false;
 
-// console.log(inputElement);
-// console.log(operators);
-// console.log(clearButton);
+const exampleArr = ["7+8"];
+// const inputArr
 
-let resultFlag = false;
+// Events
 
-// EventListener
-operators.forEach((operator) => {
-  operator.addEventListener("click", (event) => {
-    const clickedOperator = event.target.className;
-    let currentInputString = inputElement.innerText;
-    let lastChar = currentInputString[currentInputString.length - 1];
+// ----- NumberButton
+numberEls.forEach((numberButton) => {
+  numberButton.addEventListener("click", (event) => {
+    // 클릭한 버튼의 숫자를 inputEl 에 출력
 
-    /*
-      currentInputString 의 마지막 문자(lastChar)가 연산자가 아닌 경우
-      currentInputString 에 클릭한 문자를 추가
-    */
-    if (
-      lastChar !== "+" &&
-      lastChar !== "-" &&
-      lastChar !== "*" &&
-      lastChar !== "/"
+    // 출력된 inputEl 의 String을 담기 위한 변수
+    let currentString = inputEl.textContent;
+    let lastChar = currentString[currentString.length - 1];
+
+    if (resultDisplayFlag === false) {
+      inputEl.textContent += event.target.textContent;
+    } else if (
+      (resultDisplayFlag === true && lastChar === "+") ||
+      lastChar === "-" ||
+      lastChar === "x" ||
+      lastChar === "÷"
     ) {
-      currentInputString += clickedOperator;
-      inputElement.innerText += clickedOperator;
-      console.log(currentInputString);
+      resultDisplayFlag = false;
+      inputEl.textContent += event.target.textContent;
+    } else {
+      resultDisplayFlag = false;
+      inputEl.textContent = "";
+      inputEl.textContent += event.target.textContent;
     }
+    // console.log(currentString, lastChar);
   });
 });
 
-numbers.forEach((number) => {
-  number.addEventListener("click", (event) => {
-    const clickedNumber = number.innerText;
-    inputElement.innerText += clickedNumber;
+// ----- OperatorButton
 
-    /*
-      number Button 을 클릭했을 경우 이어서 추가되어야 한다. 
-    */
-  });
+operatorEl.addEventListener("click", (event) => {
+  let currentString = inputEl.textContent;
+  let lastChar = currentString[currentString.length - 1];
+
+  // 마지막에 클릭한 버튼이 연산자일 떄
+  if (
+    lastChar === "+" ||
+    lastChar === "-" ||
+    lastChar === "x" ||
+    lastChar === "÷"
+  ) {
+    let newString =
+      currentString.substring(0, currentString.length - 1) +
+      event.target.textContent;
+    inputEl.textContent = newString;
+
+    // console.log(currentString, newString);
+  }
+  // 아무것도 입력하지 않은 상태에서는 연산자를 클릭할 수 없을 때
+  else if (currentString.length === 0) {
+    console.log("Enter a Number first");
+  } else {
+    inputEl.textContent += event.target.textContent;
+  }
 });
 
-/*
-  ClearButton 을 클릭한 경우
-  입력한 내용이 모두 제거되야 한다. 
-*/
-clearButton.addEventListener("click", (event) => {
-  inputElement.innerText = "";
+equalEl.addEventListener("click", () => {
+  let inputString = input.textContent;
+  let numbers = inputString.split(/\+|\-|\x|\÷/g);
+  let operators = inputString.replace(/[0-9]|\./g, "").split("");
+
+  let divide = operators.indexOf("÷");
+  while (divide != -1) {
+    numbers.splice(divide, 2, numbers[divide] / numbers[divide + 1]);
+    operators.splice(divide, 1);
+    divide = operators.indexOf("÷");
+  }
+
+  let multiply = operators.indexOf("x");
+  while (multiply != -1) {
+    numbers.splice(multiply, 2, numbers[multiply] * numbers[multiply + 1]);
+    operators.splice(multiply, 1);
+    multiply = operators.indexOf("x");
+  }
+
+  let subtract = operators.indexOf("-");
+  while (subtract != -1) {
+    numbers.splice(subtract, 2, numbers[subtract] - numbers[subtract + 1]);
+    operators.splice(subtract, 1);
+    subtract = operators.indexOf("-");
+  }
+
+  let add = operators.indexOf("+");
+  while (add != -1) {
+    numbers.splice(
+      add,
+      2,
+      parseFloat(numbers[add]) + parseFloat(numbers[add + 1])
+    );
+    operators.splice(add, 1);
+    add = operators.indexOf("+");
+  }
+
+  inputEl.textContent = numbers[0];
+  resultDisplayFlag = true;
+});
+
+clearEl.addEventListener("click", (event) => {
+  inputEl.textContent = "";
 });
