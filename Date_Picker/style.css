@@ -15,12 +15,16 @@
   height: 60px;
   margin: 30px auto;
 
-  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-
   font-size: 28px;
-
   cursor: pointer;
+
+  /* Check Size */
+  /* border: 1px solid red; */
 }
 .date-input:hover {
   background-color: #f3f3f3;
@@ -28,9 +32,10 @@
 
 /* calender */
 .calendar {
-  /* display: none; */
+  display: none;
   width: 700px;
 
+  /* 중앙정렬 */
   display: absolute;
   top: 100%;
   left: 0;
@@ -39,25 +44,46 @@
 
   background-color: antiquewhite;
   outline: 2px solid lightgrey;
+  border-radius: 3%;
   overflow: hidden;
+}
+
+.calendar:active {
+  background-color: #00a2ff;
 }
 
 .month {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 2px solid #eee;
+
+  /* border: 1px solid red; */
 }
 
 .arrows {
   width: 35px;
   height: 35px;
-  /* display: flex;
-  justify-content: center;
+
+  display: flex;
   align-items: center;
+  justify-content: center;
+
   color: #313131;
   font-size: 20px;
   cursor: pointer;
-  transition: 0.3s; */
+  transition: 0.3s;
+
+  /* Check Size */
+  /* border: 1px solid red; */
+}
+
+.arrows:hover {
+  background-color: #f3f3f3;
+}
+
+.arrows:active {
+  background-color: #00a2ff;
 }
 
 .days {
@@ -67,18 +93,35 @@
 .day {
   width: 100px;
   height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid #eee;
 }
 
 .dates {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  border: 1px solid black;
+
+  /* Check Size */
+  /* border: 1px solid black; */
 }
 
 .date {
   height: 100px;
   width: 100px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  color: #313131;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.date:hover {
+  background-color: #f3f3f3;
 }
