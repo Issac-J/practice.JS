@@ -8,8 +8,8 @@ const modeButton = document.querySelector("button");
 // console.log(lineColorInput);
 // console.log(modeButton);
 
-const CANVAS_WIDTH = 700;
-const CANVAS_HEIGHT = 700;
+const CANVAS_WIDTH = window.innerWidth;
+const CANVAS_HEIGHT = window.innerHeight;
 
 let paintingFlag = false;
 let modeFlag = modeButton.innerText;
@@ -69,3 +69,5 @@ modeButton.addEventListener("click", () => {
     modeFlag = "Draw Mode";
   }
 });
+
+console.dir(document.body);
